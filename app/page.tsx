@@ -2,6 +2,7 @@ import Image from "next/image";
 import { HeroWithBackgroundAndNavbar } from "@/components/pages/home/hero";
 import { ServicesWithStickyScroll } from "@/components/pages/home/services";
 import { PricingWithSwitchAndAddOn } from "@/components/pages/home/pricing";
+import { TestimonialsMasonryGrid } from "@/components/pages/home/testimonials";
 
 export default function Home() {
   return (
@@ -9,6 +10,7 @@ export default function Home() {
       <HeroWithBackgroundAndNavbar />
       <ServicesWithStickyScroll />
       <PricingWithSwitchAndAddOn />
+      <TestimonialsMasonryGrid />
     </div>
   );
 }

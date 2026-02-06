@@ -61,7 +61,7 @@ export function Pricing() {
           ))}
         </div>
       </div>
-      <div className="relative z-20 mx-auto mt-4 grid grid-cols-1 items-center border-b border-t border-neutral-200 bg-neutral-100 px-4 md:mt-20 md:grid-cols-2 md:px-8 xl:grid-cols-3 dark:border-neutral-800 dark:bg-neutral-950">
+      <div className="relative mx-auto mt-4 grid grid-cols-1 items-center border-b border-t border-neutral-200 bg-neutral-100 px-4 md:mb-10 md:mt-0 md:grid-cols-2 md:px-10 xl:grid-cols-3 dark:border-neutral-800 dark:bg-neutral-950">
         {tiers.map((tier, tierIdx) => (
           <div
             key={tier.id}
@@ -359,10 +359,10 @@ export const Icon = ({ className, ...rest }: React.SVGProps<SVGSVGElement>) => {
 const Scales = () => {
   return (
     <>
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-px w-full bg-neutral-200 md:top-0 dark:bg-neutral-800"></div>
-      <div className="pointer-events-none absolute inset-x-0 bottom-4 h-px w-full bg-neutral-200 md:bottom-10 dark:bg-neutral-800"></div>
-      <div className="pointer-events-none absolute inset-y-0 left-4 h-full w-px bg-neutral-200 md:left-10 dark:bg-neutral-800"></div>
-      <div className="pointer-events-none absolute inset-y-0 right-4 h-full w-px bg-neutral-200 md:right-10 dark:bg-neutral-800"></div>
+      <div className="pointer-events-none z-20 absolute inset-x-0 top-0 h-px w-full bg-neutral-200 md:top-0 dark:bg-neutral-800"></div>
+      <div className="pointer-events-none z-20 absolute inset-y-0 left-4 h-full w-px bg-neutral-200 md:left-10 dark:bg-neutral-800"></div>
+      <div className="pointer-events-none z-20 absolute inset-x-0 bottom-4 h-px w-full bg-neutral-200 md:bottom-10 dark:bg-neutral-800"></div>
+      <div className="pointer-events-none z-20 absolute inset-y-0 right-4 h-full w-px bg-neutral-200 md:right-10 dark:bg-neutral-800"></div>
     </>
   );
 };
