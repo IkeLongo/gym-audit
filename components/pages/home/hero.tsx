@@ -5,7 +5,7 @@ import React from "react";
 import { motion } from "motion/react";
 
 const navLinks = [
-  { name: "Training", href: "#features" },
+  { name: "Services", href: "#services" },
   { name: "Pricing", href: "#pricing" },
   { name: "Stories", href: "#blog" },
   { name: "Location", href: "#docs" },
