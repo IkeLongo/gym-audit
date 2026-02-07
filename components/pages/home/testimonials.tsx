@@ -153,7 +153,7 @@ export const testimonials: Testimonial[] = [
     designation: "Personal Training Client",
   },
   {
-    name: "Alice Johnson",
+    name: "Lee Johnson",
     quote:
       "I was nervous starting out, but the coaches made me feel comfortable from day one. The workouts are challenging but always approachable.",
     src: "https://i.pravatar.cc/150?img=3",

@@ -3,6 +3,7 @@ import { HeroWithBackgroundAndNavbar } from "@/components/pages/home/hero";
 import { ServicesWithStickyScroll } from "@/components/pages/home/services";
 import { PricingWithSwitchAndAddOn } from "@/components/pages/home/pricing";
 import { TestimonialsMasonryGrid } from "@/components/pages/home/testimonials";
+import GymMapNewsletterSection from "@/components/pages/home/location";
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
       <ServicesWithStickyScroll />
       <PricingWithSwitchAndAddOn />
       <TestimonialsMasonryGrid />
+      <GymMapNewsletterSection />
     </div>
   );
 }
