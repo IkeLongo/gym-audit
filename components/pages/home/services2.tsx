@@ -1,6 +1,7 @@
 import React from "react";
 import { cn } from "@/lib/utils";
 import { IconPlus, IconTrophy, IconUser, IconUsers } from "@tabler/icons-react";
+import type { GymTheme } from "@/lib/gyms";
 
 import {
   IconCheck,
@@ -10,14 +11,14 @@ import {
   IconPrison,
   IconRipple,
 } from "@tabler/icons-react";
-import { div } from "motion/react-m";
+import { div, style } from "motion/react-m";
 
-export function Features() {
+export function Features({ gym }: { gym: GymTheme }) {
   return (
     <div id="services" className="mx-auto max-w-7xl px-4 py-10 md:px-8 md:py-20 lg:py-32">
       <div className="flex flex-col justify-start gap-10 xl:flex-row xl:items-baseline-last">
         <h2 className="text-2xl font-bold tracking-tight md:text-4xl lg:text-5xl">
-          Training Programs <br /> Built for <span className="italic text-indigo-400">Real Results</span>
+          Training Programs <br /> Built for <span className="italic" style={gym.accent ? { color: gym.accent } : {}}>Real Results</span>
         </h2>
         <p className="font-inter max-w-md text-base text-neutral-400 md:text-lg">
           From high-energy group classes to personalized coaching 
@@ -27,15 +28,15 @@ export function Features() {
       </div>
       <div className="my-10 grid grid-cols-1 gap-4 md:my-20 lg:grid-cols-3">
         <Card className="rounded-tl-3xl rounded-bl-3xl">
-          <CardSkeleton>
-            <SkeletonOne />
+          <CardSkeleton accent={gym.accent}>
+            <SkeletonOne accent={gym.accent} />
           </CardSkeleton>
           <CardContent>
           <div className="flex flex-col items-center gap-2">
             <div className="w-full flex justify-between items-center gap-2">
               <CardTitle>Personal Training</CardTitle>
               <CardCTA>
-                <IconUser className="text-indigo-400"/>
+                <IconUser style={gym.accent ? { color: gym.accent } : {}}/>
               </CardCTA>
             </div>
             <CardDescription>One-on-one coaching tailored to your goals, schedule, and experience level — ideal for beginners or anyone wanting a more personalized approach.</CardDescription>
@@ -51,7 +52,7 @@ export function Features() {
             <div className="w-full flex justify-between items-center gap-2">
               <CardTitle>Group Training</CardTitle>
               <CardCTA>
-                <IconUsers className="text-indigo-400"/>
+                <IconUsers style={gym.accent ? { color: gym.accent } : {}}/>
               </CardCTA>
             </div>
             <CardDescription>High-energy, coach-led workouts designed to build strength, improve conditioning, and keep you accountable in a motivating group environment.</CardDescription>
@@ -67,7 +68,7 @@ export function Features() {
               <div className="w-full flex justify-between items-center gap-2">
                 <CardTitle>Youth Development</CardTitle>
                 <CardCTA>
-                  <IconTrophy className="text-indigo-400"/>
+                  <IconTrophy style={gym.accent ? { color: gym.accent } : {}}/>
                 </CardCTA>
               </div>
             <CardDescription>Age-appropriate training programs focused on strength, speed, and confidence for young athletes at every stage of development.</CardDescription>
@@ -162,16 +163,18 @@ export const CardDescription = ({
 
 export const CardSkeleton = ({
   className,
+  accent,
   children,
 }: {
   className?: string;
+  accent?: string;
   children?: React.ReactNode;
 }) => {
   return (
     <div
       className={cn(
         "relative h-60 overflow-hidden perspective-distant transform-3d md:h-80",
-        className,
+        className, accent
       )}
     >
       {children}
@@ -179,26 +182,26 @@ export const CardSkeleton = ({
   );
 };
 
-export const SkeletonOne = () => {
+export const SkeletonOne = ({ accent }: { accent?: string }) => {
   return (
     <div className="h-full w-full -translate-y-10 scale-[1.2] rotate-x-30 -rotate-y-20 rotate-z-15 mask-r-from-50% mask-radial-from-50% perspective-distant">
       <SkeletonCard
         className="absolute -bottom-4 left-18 z-30 max-w-[90%]"
-        icon={<IconCheck className="size-4 text-indigo-400" />}
+        icon={<IconCheck className="size-4" style={accent ? { color: accent } : {}} />}
         title="Personalized Coaching"
         description="Work one-on-one with a certified trainer to create a custom fitness plan."
         imageSrc="/lets-just-do-a-quick-body-assessment.jpg"
       />
       <SkeletonCard
         className="absolute bottom-0 left-12 z-20"
-        icon={<IconCheck className="size-4 text-indigo-400" />}
+        icon={<IconCheck className="size-4" style={accent ? { color: accent } : {}} />}
         title="Group Training"
         description="Join a supportive community in high-energy group classes led by expert coaches."
         imageSrc="/coach-praising-athlete.jpg"
       />
       <SkeletonCard
         className="absolute -bottom-4 left-6 z-10 max-w-[80%]"
-        icon={<IconCheck className="size-4 text-indigo-400" />}
+        icon={<IconCheck className="size-4" style={accent ? { color: accent } : {}} />}
         title="Athlete Development"
         description="Unlock your athletic potential with specialized programs focused on speed, strength, and confidence."
         imageSrc="/man-exercising-with-barbell-in-sport-gym.jpg"

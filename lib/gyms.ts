@@ -2,8 +2,8 @@ export type GymTheme = {
   slug: string;              // subdomain: maximstrong
   name: string;              // display name
   logoSrc: string;           // /gyms/maximstrong-logo.svg
-  logoHeight?: number;         // optional height for logo in px
-  logoWidth?: number;          // optional width for logo in px
+  logoHeight?: number;       // optional height for logo in px
+  logoWidth?: number;        // optional width for logo in px
   primary: string;           // hex
   accent?: string;           // hex (optional)
   textOnPrimary?: string;    // hex (optional)
@@ -16,7 +16,7 @@ export const DEFAULT_GYM: GymTheme = {
   logoHeight: 50,
   logoWidth: 50,
   primary: "oklch(58.5% 0.233 277.117)",
-  accent: "#22C55E",
+  accent: "oklch(67.3% 0.182 276.935)",
   textOnPrimary: "#0A0A0A",
 };
 
@@ -28,7 +28,7 @@ export const GYMS: Record<string, GymTheme> = {
     logoHeight: 70,
     logoWidth: 130,
     primary: "oklch(43.7% 0.078 188.216)",
-    accent: "#60A5FA",
+    accent: "oklch(85.5% 0.138 181.071)",
     textOnPrimary: "#0A0A0A",
   },
   phoenix830: {
@@ -38,7 +38,7 @@ export const GYMS: Record<string, GymTheme> = {
     logoHeight: 50,
     logoWidth: 50,
     primary: "oklch(72.3% 0.219 149.579)",
-    accent: "#F97316",
+    accent: "oklch(87.1% 0.15 154.449)",
     textOnPrimary: "#0A0A0A",
   },
   orionfitness: {
@@ -47,8 +47,8 @@ export const GYMS: Record<string, GymTheme> = {
     logoSrc: "/logo-orion-fitness.png",
     logoHeight: 70,
     logoWidth: 140,
-    primary: "oklch(58.8% 0.158 241.966)",
-    accent: "#F97316",
+    primary: "oklch(71.5% 0.143 215.221)",
+    accent: "oklch(91.7% 0.08 205.041)",
     textOnPrimary: "#0A0A0A",
   },
 };
