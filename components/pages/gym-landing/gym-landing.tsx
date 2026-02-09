@@ -12,7 +12,7 @@ export default function GymLanding({ gym }: { gym: GymTheme }) {
     <div className="flex flex-col min-h-screen items-center justify-center bg-black font-sans">
       <HeroWithBackgroundAndNavbar gym={gym} />
       <Features gym={gym} />
-      <PricingWithSwitchAndAddOn />
+      <PricingWithSwitchAndAddOn gym={gym} />
       <TestimonialsMasonryGrid />
       <GymMapNewsletterSection />
     </div>

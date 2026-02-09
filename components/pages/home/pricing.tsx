@@ -8,8 +8,9 @@ import { cn } from "@/lib/utils";
 import { useState } from "react";
 import { motion } from "motion/react";
 import { SimpleCenteredContactForm } from "@/components/ui/forms/simple-contact";
+import type { GymTheme } from "@/lib/gyms";
 
-export function PricingWithSwitchAndAddOn() {
+export function PricingWithSwitchAndAddOn({ gym }: { gym: GymTheme }) {
 
   return (
     <div id="pricing" className="relative mx-auto h-full w-full pt-20 md:pt-20">
@@ -26,12 +27,14 @@ export function PricingWithSwitchAndAddOn() {
           Pick a plan that suits your needs and get started instantly.
         </p>
       </div>
-      <Pricing />
+      <Pricing 
+        gym={gym}
+      />
     </div>
   );
 }
 
-export function Pricing() {
+export function Pricing({ gym }: { gym: GymTheme }) {
   const [active, setActive] = useState("monthly");
   const tabs = [
     { name: "Monthly", value: "monthly" },
@@ -56,7 +59,8 @@ export function Pricing() {
                 <motion.span
                   layoutId="moving-div"
                   transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-                  className="absolute inset-0 bg-indigo-700 dark:bg-indigo-700"
+                  className="absolute inset-0"
+                  style={{ backgroundColor: gym.primary || "#4f46e5" }}
                 />
               )}
               <span className="relative z-10">{tab.name}</span>
@@ -138,8 +142,11 @@ export function Pricing() {
                 }}
                 aria-describedby={tier.id}
                 className={cn(
-                  "mt-8 block w-full rounded-lg bg-gradient-to-b from-indigo-500 to-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-[0px_2px_0px_0px_rgba(255,255,255,0.5)_inset] transition duration-200 hover:-translate-y-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 sm:mt-10",
+                  "mt-8 block w-full rounded-lg px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-[0px_2px_0px_0px_rgba(255,255,255,0.5)_inset] transition duration-200 hover:-translate-y-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 sm:mt-10",
                 )}
+                style={gym.primary2 ? {
+                  background: `linear-gradient(to bottom, ${gym.primary}, ${gym.primary2})`
+                } : { backgroundColor: gym.primary || "#4f46e5" }}
               >
                 {tier.cta}
               </button>
