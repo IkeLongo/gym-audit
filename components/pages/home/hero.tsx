@@ -104,31 +104,62 @@ export const Button = ({
 
 const Box = () => {
   return (
-    <div className="absolute inset-y-0 left-1 z-40 my-auto flex size-8 flex-col items-center justify-center gap-px rounded-full bg-gradient-to-br from-gray-700 to-gray-900 shadow-lg transition-all duration-400 ease-out group-hover/button:left-[calc(100%-2.3rem)] group-hover/button:rotate-180 group-hover/button:transform">
-      {/* Outer ring - weight plate rim */}
-      <div className="absolute inset-0 rounded-full border-2 border-gray-600" />
-      {/* Inner ring - weight plate detail */}
-      <div className="absolute inset-[6px] rounded-full border border-gray-500" />
-      <Arrow />
+    <div className="absolute inset-y-0 left-1 z-40 my-auto flex size-8 flex-col items-center justify-center gap-px rounded-[5px] bg-indigo-500 transition-all duration-400 ease-out group-hover/button:left-[calc(100%-2.3rem)] group-hover/button:rotate-180 group-hover/button:transform">
+      <BubblesGroup />
     </div>
   );
 };
-
-const Arrow = () => {
+ 
+const BubblesGroup = () => {
   return (
-    <svg
-      className="h-4 w-4 animate-pulse text-white"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke="currentColor"
-      strokeWidth={2}
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M13 7l5 5m0 0l-5 5m5-5H6"
-      />
-    </svg>
+    <div className={cn("flex flex-col gap-px")}>
+      <div className="flex gap-px">
+        <Bubble />
+        <Bubble />
+        <Bubble highlight />
+        <Bubble />
+        <Bubble />
+      </div>
+      <div className="flex gap-px">
+        <Bubble />
+        <Bubble />
+        <Bubble />
+        <Bubble highlight />
+        <Bubble />
+      </div>
+      <div className="flex gap-px">
+        <Bubble highlight />
+        <Bubble highlight />
+        <Bubble highlight />
+        <Bubble highlight />
+        <Bubble highlight />
+      </div>
+      <div className="flex gap-px">
+        <Bubble />
+        <Bubble />
+        <Bubble />
+        <Bubble highlight />
+        <Bubble />
+      </div>
+      <div className="flex gap-px">
+        <Bubble />
+        <Bubble />
+        <Bubble highlight />
+        <Bubble />
+        <Bubble />
+      </div>
+    </div>
+  );
+};
+ 
+const Bubble = ({ highlight }: { highlight?: boolean }) => {
+  return (
+    <span
+      className={cn(
+        "inline-block size-[3px] shrink-0 rounded-full bg-white/10",
+        highlight && "animate-pulse bg-white duration-200 ease-linear",
+      )}
+    />
   );
 };
 

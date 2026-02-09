@@ -37,7 +37,7 @@ export function Pricing() {
   ];
 
   return (
-    <div className="relative">
+    <div className="relative mx-20">
       <div className="border-b">
         <div className="mx-auto mb-12 mt-10 flex w-fit items-center justify-center overflow-hidden rounded-full bg-neutral-100 dark:bg-neutral-800">
           {tabs.map((tab) => (
@@ -68,7 +68,7 @@ export function Pricing() {
             className={cn(
               "flex h-full flex-col justify-between bg-neutral-100 px-6 py-8 sm:mx-8 lg:mx-0 dark:bg-neutral-950",
               tier.featured &&
-                "relative bg-white shadow-2xl dark:bg-neutral-900",
+                "relative bg-white shadow-2xl dark:bg-zinc-900",
             )}
           >
             <div className="">

@@ -76,13 +76,13 @@ export function ServicesWithStickyScroll() {
     target: ref,
     offset: ["start end", "end start"],
   });
-  const backgrounds = ["#000000", "#1d1d1d", "#000000"];
+  const backgrounds = ["#000000", "#040029", "#06003b", "#080053", "#06003b", "#040029", "#000000"];
 
   const [gradient, setGradient] = useState(backgrounds[0]);
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    const cardsBreakpoints = services.map(
-      (_, index) => index / services.length,
+    const cardsBreakpoints = backgrounds.map(
+      (_, index) => index / (backgrounds.length - 1),
     );
     const closestBreakpointIndex = cardsBreakpoints.reduce(
       (acc, breakpoint, index) => {
@@ -94,7 +94,7 @@ export function ServicesWithStickyScroll() {
       },
       0,
     );
-    setGradient(backgrounds[closestBreakpointIndex % backgrounds.length]);
+    setGradient(backgrounds[closestBreakpointIndex]);
   });
   return (
     <motion.div
@@ -191,7 +191,7 @@ export const ScrollContent = ({
             {item.title}
           </motion.h2>
 
-          <motion.p className="font-regular mt-2 max-w-sm text-lg text-neutral-500">
+          <motion.p className="font-regular mt-2 max-w-sm text-lg text-neutral-300">
             {item.description}
           </motion.p>
         </motion.div>

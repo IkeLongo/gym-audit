@@ -11,7 +11,7 @@ export function TestimonialsMasonryGrid() {
 
   const grid = [first, second, third, fourth];
   return (
-    <div className="relative mx-auto h-full w-full py-20 md:py-20">
+    <div className="relative mx-auto h-full w-full py-20 md:py-20 bg-zinc-900">
       {/* <Scales /> */}
       <h2
         id="reviews-title"
@@ -75,7 +75,7 @@ export const Card = ({
         className,
       )}
     >
-      <FaQuoteLeft className="absolute top-2 left-2 text-neutral-300" />
+      <FaQuoteLeft className="absolute top-2 left-2 text-indigo-500" />
       {children}
     </div>
   );
@@ -110,7 +110,7 @@ export const QuoteDescription = ({
   return (
     <p
       className={cn(
-        "max-w-sm text-xs font-normal text-neutral-600 dark:text-neutral-400",
+        "max-w-sm text-xs font-normal text-indigo-100",
         className,
       )}
     >
