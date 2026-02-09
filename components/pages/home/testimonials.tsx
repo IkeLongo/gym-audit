@@ -2,8 +2,9 @@
 
 import { cn } from "@/lib/utils";
 import { FaQuoteLeft } from "react-icons/fa";
+import type { GymTheme } from "@/lib/gyms";
 
-export function TestimonialsMasonryGrid() {
+export function TestimonialsMasonryGrid({ gym }: { gym: GymTheme }) {
   const first = testimonials.slice(0, 3);
   const second = testimonials.slice(3, 6);
   const third = testimonials.slice(6, 9);
@@ -36,7 +37,10 @@ export function TestimonialsMasonryGrid() {
             className="grid items-start gap-4"
           >
             {testimonialsCol.map((testimonial) => (
-              <Card key={`testimonial-${testimonial.src}-${index}`}>
+              <Card
+                key={`testimonial-${testimonial.src}-${index}`}
+                primary={gym.primary}
+              >
                 <Quote>{testimonial.quote}</Quote>
                 <div className="mt-8 flex items-center gap-2">
                   <img
@@ -63,9 +67,11 @@ export function TestimonialsMasonryGrid() {
 }
 export const Card = ({
   className,
+  primary,
   children,
 }: {
   className?: string;
+  primary?: string;
   children: React.ReactNode;
 }) => {
   return (
@@ -75,7 +81,10 @@ export const Card = ({
         className,
       )}
     >
-      <FaQuoteLeft className="absolute top-2 left-2 text-indigo-500" />
+      <FaQuoteLeft
+        className="absolute top-2 left-2" 
+        style={primary ? { color: primary } : { color: "text-white" }}
+      />
       {children}
     </div>
   );

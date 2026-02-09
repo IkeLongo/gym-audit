@@ -13,7 +13,7 @@ export default function GymLanding({ gym }: { gym: GymTheme }) {
       <HeroWithBackgroundAndNavbar gym={gym} />
       <Features gym={gym} />
       <PricingWithSwitchAndAddOn gym={gym} />
-      <TestimonialsMasonryGrid />
+      <TestimonialsMasonryGrid gym={gym} />
       <GymMapNewsletterSection />
     </div>
   );

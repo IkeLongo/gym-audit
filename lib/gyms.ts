@@ -29,7 +29,7 @@ export const GYMS: Record<string, GymTheme> = {
     logoSrc: "/logo-specialized-fitness.png",
     logoHeight: 70,
     logoWidth: 130,
-    primary: "oklch(43.7% 0.078 188.216)",
+    primary: "oklch(51.1% 0.096 186.391)",
     primary2: "oklch(70.4% 0.14 182.503)",
     accent: "oklch(92.5% 0.084 155.995)",
     textOnPrimary: "#0A0A0A",
