@@ -1,8 +1,9 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "motion/react";
+import { SimpleCenteredContactForm } from "@/components/ui/forms/simple-contact";
 
 const navLinks = [
   { name: "Services", href: "#services" },
@@ -12,8 +13,10 @@ const navLinks = [
 ];
 
 export function HeroWithBackgroundAndNavbar() {
+  const [modalOpen, setModalOpen] = useState(false);
+  
   return (
-    <div className="relative w-full">
+    <div className={cn("relative w-full")}> 
       {/* Navbar */}
       <nav className="absolute inset-x-4 top-4 z-50 flex items-center justify-between px-4 py-4 md:inset-x-10 md:top-10 md:px-10">
         <Logo className="py-0" />
@@ -27,10 +30,10 @@ export function HeroWithBackgroundAndNavbar() {
               {link.name}
             </a>
           ))}
-          <Button text="Try for free" />
+          <Button text="Try for free" onClick={() => setModalOpen(true)} />
         </div>
       </nav>
-      <div className="relative flex min-h-screen w-full flex-col justify-end p-4 md:p-14">
+      <div className={cn("relative flex min-h-screen w-full flex-col justify-end p-4 md:p-14 transition duration-300")}> 
         {/* Background image with fade-in */}
         <motion.div
           initial={{ opacity: 0 }}
@@ -56,12 +59,20 @@ export function HeroWithBackgroundAndNavbar() {
             everything you need to achieve your fitness goals.
           </p>
           <div className="mt-6 flex flex-col items-start gap-4 sm:flex-row sm:items-center md:mt-10">
-            <Button text="Try for free" />
+            <Button text="Try for free" onClick={() => setModalOpen(true)} />
             {/* <button className="text-sm font-medium text-neutral-600 dark:text-neutral-400">
               Read Documentation &rarr;
             </button> */}
           </div>
         </div>
+        {/* Modal */}
+        {modalOpen && (
+          <div className="fixed inset-0 z-[100] flex items-center justify-center bg-transparent">
+            <div className="relative w-full max-w-lg mx-auto">
+              <SimpleCenteredContactForm onClose={() => setModalOpen(false)} />
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
@@ -81,10 +92,12 @@ const Scales = () => {
 export const Button = ({
   text = "Try for free",
   containerClassName,
+  onClick,
 }: {
   text?: string;
   showAvatar?: boolean;
   containerClassName?: string;
+  onClick?: () => void;
 }) => {
   return (
     <button
@@ -92,6 +105,7 @@ export const Button = ({
         "group/button relative flex cursor-pointer items-center gap-2 rounded-lg border border-white/20 bg-black py-2 pr-4 pl-11 tracking-tight",
         containerClassName,
       )}
+      onClick={onClick}
     >
       <Box />
       <div className="absolute -inset-px rounded-lg bg-white/20 transition-[clip-path] duration-400 ease-out [clip-path:inset(0_100%_0_0)] group-hover/button:[clip-path:inset(0_0%_0_0)]" />

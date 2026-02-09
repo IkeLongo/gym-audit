@@ -7,8 +7,10 @@ import {
 import { cn } from "@/lib/utils";
 import { useState } from "react";
 import { motion } from "motion/react";
+import { SimpleCenteredContactForm } from "@/components/ui/forms/simple-contact";
 
 export function PricingWithSwitchAndAddOn() {
+
   return (
     <div id="pricing" className="relative mx-auto h-full w-full pt-20 md:pt-20">
       {/* <Scales /> */}
@@ -35,6 +37,7 @@ export function Pricing() {
     { name: "Monthly", value: "monthly" },
     { name: "Yearly", value: "yearly" },
   ];
+  const [modalOpen, setModalOpen] = useState(false);
 
   return (
     <div className="relative mx-20">
@@ -130,7 +133,9 @@ export function Pricing() {
             </div>
             <div>
               <button
-                onClick={tier.onClick}
+                onClick={() => {
+                  setModalOpen(true);
+                }}
                 aria-describedby={tier.id}
                 className={cn(
                   "mt-8 block w-full rounded-lg bg-gradient-to-b from-indigo-500 to-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-[0px_2px_0px_0px_rgba(255,255,255,0.5)_inset] transition duration-200 hover:-translate-y-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 sm:mt-10",
@@ -139,6 +144,16 @@ export function Pricing() {
                 {tier.cta}
               </button>
             </div>
+            {/* Modal */}
+            {modalOpen && (
+              <div className="fixed inset-0 z-[100] flex items-center justify-center bg-transparent">
+                <div className="relative w-full max-w-lg mx-auto">
+                  <SimpleCenteredContactForm
+                    onClose={() => setModalOpen(false)}
+                  />
+                </div>
+              </div>
+            )}
           </div>
         ))}
       </div>
