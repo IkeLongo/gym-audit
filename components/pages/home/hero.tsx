@@ -44,7 +44,7 @@ export function HeroWithBackgroundAndNavbar() {
             className="h-full w-full mask-t-from-70% mask-b-from-50% mask-l-from-50% object-cover object-center"
           />
         </motion.div>
-        <Scales />
+        {/* <Scales /> */}
         <div className="relative z-40 p-4 md:p-4">
           <h1 className="max-w-3xl text-3xl font-medium tracking-tight text-neutral-800 sm:text-4xl md:text-6xl lg:text-8xl dark:text-neutral-200">
             Your Fitness Journey Begins Here

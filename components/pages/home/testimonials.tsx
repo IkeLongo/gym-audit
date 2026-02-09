@@ -12,7 +12,7 @@ export function TestimonialsMasonryGrid() {
   const grid = [first, second, third, fourth];
   return (
     <div className="relative mx-auto h-full w-full py-20 md:py-20">
-      <Scales />
+      {/* <Scales /> */}
       <h2
         id="reviews-title"
         className={cn(

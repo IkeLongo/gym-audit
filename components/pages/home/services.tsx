@@ -76,7 +76,7 @@ export function ServicesWithStickyScroll() {
     target: ref,
     offset: ["start end", "end start"],
   });
-  const backgrounds = ["#000000", "#000000", "#000000"];
+  const backgrounds = ["#000000", "#1d1d1d", "#000000"];
 
   const [gradient, setGradient] = useState(backgrounds[0]);
 
@@ -104,7 +104,7 @@ export function ServicesWithStickyScroll() {
       className="relative mx-auto h-full w-full pt-20 md:pt-20"
     >
       <div className="flex flex-col items-center px-6 text-center">
-        <Scales />
+        {/* <Scales /> */}
         <h2 className="mt-4 text-lg font-bold text-white md:text-2xl lg:text-4xl">
           Training Programs Built for Real Results
         </h2>

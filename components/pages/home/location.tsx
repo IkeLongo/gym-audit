@@ -47,7 +47,7 @@ export default function GymMapNewsletterSection({
     mapRef.current = map;
 
     // Basic marker
-    new mapboxgl.Marker({ color: "#F5C542" })
+    new mapboxgl.Marker({ color: "#4d31c9" })
       .setLngLat(marker)
       .addTo(map);
 
@@ -61,8 +61,8 @@ export default function GymMapNewsletterSection({
   }, [center, marker]);
 
   return (
-    <section className="relative mx-auto h-full w-full py-20 md:py-20">
-      <Scales />
+    <section className="relative mx-auto h-full w-full py-20 md:py-4">
+      {/* <Scales /> */}
       <div className="mx-auto max-w-6xl px-6 md:px-18 py-2 md:py-16">
         <div className="grid items-center gap-10 lg:grid-cols-2">
           {/* LEFT: Newsletter */}
@@ -92,8 +92,8 @@ export default function GymMapNewsletterSection({
 
           {/* RIGHT: Map Card */}
           <PinContainer title="San Antonio, TX" href="#">
-            <div className="w-full min-w-0">
-              <div className="overflow-hidden rounded-2xl bg-neutral-900 ring-1 ring-white/10 shadow-2xl w-full min-w-0">
+            <div className="w-full">
+              <div className="relative overflow-hidden rounded-2xl bg-neutral-900 ring-1 ring-white/10 shadow-2xl w-full">
                 {/* Tooltip label */}
                 <div className="absolute left-4 top-4 z-10 rounded-lg bg-neutral-900/90 px-3 py-2 text-xs text-white/90 ring-1 ring-white/10 backdrop-blur">
                   <div className="whitespace-pre-line leading-snug">
@@ -103,7 +103,7 @@ export default function GymMapNewsletterSection({
                 {/* Map container */}
                 <div
                   ref={mapContainerRef}
-                  className="w-full h-[260px] md:h-[320px] min-w-0"
+                  className="w-full h-[240px] md:h-[320px]"
                 />
               </div>
               {/* little glow / accent */}

@@ -60,12 +60,12 @@ export function CenteredWithLogo() {
             <Link href="#">
               <IconBrandTwitter className="h-6 w-6 text-neutral-500 dark:text-neutral-300" />
             </Link>
-            <Link href="#">
+            {/* <Link href="#">
               <IconBrandLinkedin className="h-6 w-6 text-neutral-500 dark:text-neutral-300" />
-            </Link>
-            <Link href="#">
+            </Link> */}
+            {/* <Link href="#">
               <IconBrandGithub className="h-6 w-6 text-neutral-500 dark:text-neutral-300" />
-            </Link>
+            </Link> */}
             <Link href="#">
               <IconBrandFacebook className="h-6 w-6 text-neutral-500 dark:text-neutral-300" />
             </Link>
