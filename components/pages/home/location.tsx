@@ -61,7 +61,7 @@ export default function GymMapNewsletterSection({
   }, [center, marker]);
 
   return (
-    <section className="relative mx-auto h-full w-full py-20 md:py-4">
+    <section id="location" className="relative mx-auto h-full w-full py-20 md:py-4">
       {/* <Scales /> */}
       <div className="mx-auto max-w-6xl px-6 md:px-18 py-2 md:py-16">
         <div className="grid items-center gap-10 lg:grid-cols-2">

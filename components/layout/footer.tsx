@@ -11,22 +11,10 @@ import React from "react";
 
 export function CenteredWithLogo() {
   const pages = [
-    {
-      title: "Services",
-      href: "#",
-    },
-    {
-      title: "Pricing",
-      href: "#",
-    },
-    {
-      title: "Testimonials",
-      href: "#",
-    },
-    {
-      title: "Location",
-      href: "#",
-    },
+    { title: "Services", href: "#services" },
+    { title: "Pricing", href: "#pricing" },
+    { title: "Testimonials", href: "#testimonials" },
+    { title: "Location", href: "#location" },
   ];
 
   return (
@@ -42,7 +30,7 @@ export function CenteredWithLogo() {
               <li key={"pages" + idx} className="list-none">
                 <Link
                   className="hover:text-text-neutral-800 transition-colors"
-                  href="#"
+                  href={page.href}
                 >
                   {page.title}
                 </Link>
@@ -54,7 +42,7 @@ export function CenteredWithLogo() {
         </div>
         <div className="mt-8 flex w-full flex-col items-center justify-between sm:flex-row">
           <p className="mb-8 text-neutral-500 sm:mb-0 dark:text-neutral-400">
-            &copy; DevStudios LLABC
+            &copy; Example Gym LLC
           </p>
           <div className="flex gap-4">
             <Link href="#">
@@ -126,7 +114,7 @@ const Logo = () => {
         width={30}
         height={30}
       />
-      <span className="font-medium text-black dark:text-white">DevStudio</span>
+      <span className="font-medium text-black dark:text-white">Example Gym</span>
     </Link>
   );
 };

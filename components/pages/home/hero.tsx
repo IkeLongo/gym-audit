@@ -7,8 +7,8 @@ import { motion } from "motion/react";
 const navLinks = [
   { name: "Services", href: "#services" },
   { name: "Pricing", href: "#pricing" },
-  { name: "Testimonials", href: "#blog" },
-  { name: "Location", href: "#docs" },
+  { name: "Testimonials", href: "#testimonials" },
+  { name: "Location", href: "#location" },
 ];
 
 export function HeroWithBackgroundAndNavbar() {

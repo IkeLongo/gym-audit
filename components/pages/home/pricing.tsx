@@ -10,7 +10,7 @@ import { motion } from "motion/react";
 
 export function PricingWithSwitchAndAddOn() {
   return (
-    <div className="relative mx-auto h-full w-full pt-20 md:pt-20">
+    <div id="pricing" className="relative mx-auto h-full w-full pt-20 md:pt-20">
       {/* <Scales /> */}
       {/* <Icon className="absolute -left-4 -top-4" />
       <Icon className="absolute -right-4 -top-4" />

@@ -14,7 +14,7 @@ import { div } from "motion/react-m";
 
 export function Features() {
   return (
-    <div className="mx-auto max-w-7xl px-4 py-10 md:px-8 md:py-20 lg:py-32">
+    <div id="services" className="mx-auto max-w-7xl px-4 py-10 md:px-8 md:py-20 lg:py-32">
       <div className="flex flex-col justify-start gap-10 xl:flex-row xl:items-baseline-last">
         <h2 className="text-2xl font-bold tracking-tight md:text-4xl lg:text-5xl">
           Training Programs <br /> Built for <span className="italic text-indigo-400">Real Results</span>
