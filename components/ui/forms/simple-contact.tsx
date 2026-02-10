@@ -56,9 +56,9 @@ export function SimpleCenteredContactForm({ onClose }: { onClose?: () => void })
   ];
 
   return (
-    <div className="w-full flex items-center justify-center">
-      <div className="flex relative px-4 z-20 items-center w-full justify-center py-10">
-        <div className="mx-auto w-full max-w-lg bg-white dark:bg-neutral-950 px-4 md:px-10 py-8 shadow-input rounded-3xl relative">
+    <div className="w-full min-h-screen flex items-center justify-center p-2 sm:p-6 box-border overflow-auto">
+      <div className="flex relative z-20 items-center w-full justify-center py-10 max-w-full">
+        <div className="mx-auto w-full max-w-lg bg-white dark:bg-neutral-950 px-4 md:px-10 py-8 shadow-input rounded-3xl relative box-border overflow-auto" style={{maxHeight: '90vh'}}>
           {onClose && (
             <button
               className="absolute top-2 right-2 z-10 rounded-full bg-white/80 px-3 py-1 text-black hover:bg-white"
