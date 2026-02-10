@@ -2,18 +2,20 @@
 import React, { useState } from "react";
 import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
-
+import { GymTheme } from "@/lib/gyms";
 
 export const PinContainer = ({
   children,
   title,
   href,
+  gym,
   className,
   containerClassName,
 }: {
   children: React.ReactNode;
   title?: string;
   href?: string;
+  gym?: GymTheme;
   className?: string;
   containerClassName?: string;
 }) => {
@@ -57,7 +59,7 @@ export const PinContainer = ({
           <div className={cn(" relative z-50 w-full", className)}>{children}</div>
         </div>
       </div>
-      <PinPerspective title={title} href={href} />
+      <PinPerspective title={title} href={href} gym={gym} />
     </a>
   );
 };
@@ -65,10 +67,27 @@ export const PinContainer = ({
 export const PinPerspective = ({
   title,
   href,
+  gym,
 }: {
   title?: string;
   href?: string;
+  gym?: GymTheme;
 }) => {
+  // Helper to add alpha to OKLCH color string
+  function oklchWithAlpha(oklch: string, alpha: number) {
+    console.log("oklchWithAlpha input:", { oklch, alpha });
+    if (!oklch || !oklch.startsWith("oklch")) {
+      console.log("Not an OKLCH color, returning as-is:", oklch);
+      return oklch;
+    }
+    const result = oklch.replace(")", ` / ${alpha})`);
+    console.log("oklchWithAlpha output:", result);
+    return result;
+  }
+
+  console.log("PinPerspective gym:", gym);
+  console.log("gym.primary2:", gym?.primary2);
+
   return (
     <motion.div className="pointer-events-none w-full h-60 flex items-center justify-center opacity-0 group-hover/pin:opacity-100 z-[60] transition duration-500">
       <div className="w-full h-full -mt-7 flex-none inset-0">
@@ -80,7 +99,16 @@ export const PinPerspective = ({
             <span className="relative z-20 text-white text-xs font-bold inline-block py-0.5">
               {title}
             </span>
-            <span className="absolute -bottom-0 left-[1.125rem] h-px w-[calc(100%-2.25rem)] bg-gradient-to-r from-indigo-400/0 via-indigo-400/90 to-indigo-400/0 transition-opacity duration-500 group-hover/btn:opacity-40"></span>
+            <span 
+              className="absolute -bottom-0 left-[1.125rem] h-px w-[calc(100%-2.25rem)] transition-opacity duration-500 opacity-100 group-hover/pin:opacity-100"
+              style={{
+                background: gym?.primary2 && gym?.primary2.startsWith("oklch")
+                  ? `linear-gradient(to right, transparent, ${gym.primary2}, transparent)`
+                  : gym?.primary2
+                    ? `linear-gradient(to right, transparent, ${gym.primary2}, transparent)`
+                    : `linear-gradient(to right, transparent, #9b92c2, transparent)`
+              }}
+            ></span>
           </div>
         </div>
 
@@ -109,7 +137,14 @@ export const PinPerspective = ({
                 repeat: Infinity,
                 delay: 0,
               }}
-              className="absolute left-1/2 top-1/2 -translate-y-1/2 h-[11.25rem] w-[11.25rem] rounded-[50%] bg-indigo-500/[0.08] shadow-[0_8px_16px_rgb(0_0_0/0.4)]"
+              className="absolute left-1/2 top-1/2 -translate-y-1/2 h-[11.25rem] w-[11.25rem] rounded-[50%] shadow-[0_8px_16px_rgb(0_0_0/0.4)]"
+              style={{
+                background: gym?.primary2 && gym?.primary2.startsWith("oklch")
+                  ? oklchWithAlpha(gym.primary2, 0.08)
+                  : gym?.primary2
+                    ? gym.primary2 + "14"
+                    : "#4d31c914"
+              }}
             ></motion.div>
             <motion.div
               initial={{
@@ -128,7 +163,14 @@ export const PinPerspective = ({
                 repeat: Infinity,
                 delay: 2,
               }}
-              className="absolute left-1/2 top-1/2 -translate-y-1/2 h-[11.25rem] w-[11.25rem] rounded-[50%] bg-indigo-500/[0.08] shadow-[0_8px_16px_rgb(0_0_0/0.4)]"
+              className="absolute left-1/2 top-1/2 -translate-y-1/2 h-[11.25rem] w-[11.25rem] rounded-[50%] shadow-[0_8px_16px_rgb(0_0_0/0.4)]"
+              style={{
+                background: gym?.primary2 && gym?.primary2.startsWith("oklch")
+                  ? oklchWithAlpha(gym.primary2, 0.08)
+                  : gym?.primary2
+                    ? gym.primary2 + "14"
+                    : "#4d31c914"
+              }}
             ></motion.div>
             <motion.div
               initial={{
@@ -147,16 +189,51 @@ export const PinPerspective = ({
                 repeat: Infinity,
                 delay: 4,
               }}
-              className="absolute left-1/2 top-1/2 -translate-y-1/2 h-[11.25rem] w-[11.25rem] rounded-[50%] bg-indigo-500/[0.08] shadow-[0_8px_16px_rgb(0_0_0/0.4)]"
+              className="absolute left-1/2 top-1/2 -translate-y-1/2 h-[11.25rem] w-[11.25rem] rounded-[50%] shadow-[0_8px_16px_rgb(0_0_0/0.4)]"
+              style={{
+                background: gym?.primary2 && gym?.primary2.startsWith("oklch")
+                  ? oklchWithAlpha(gym.primary2, 0.08)
+                  : gym?.primary2
+                    ? gym.primary2 + "14"
+                    : "#4d31c914"
+              }}
             ></motion.div>
           </>
         </div>
 
         <>
-          <motion.div className="absolute left-1/2 bottom-1/2 bg-gradient-to-b from-transparent to-indigo-500 translate-y-[14px] w-px h-20 group-hover/pin:h-40 blur-[2px]" />
-          <motion.div className="absolute left-1/2 bottom-1/2 bg-gradient-to-b from-transparent to-indigo-500 translate-y-[14px] w-px h-20 group-hover/pin:h-40  " />
-          <motion.div className="absolute left-1/2 translate-x-[1.5px] bottom-1/2 bg-indigo-600 translate-y-[14px] w-[4px] h-[4px] rounded-full z-40 blur-[3px]" />
-          <motion.div className="absolute left-1/2 translate-x-[0.5px] bottom-1/2 bg-indigo-500 translate-y-[14px] w-[2px] h-[2px] rounded-full z-40 " />
+          <motion.div
+            className="absolute left-1/2 bottom-1/2 translate-y-[14px] w-px h-20 group-hover/pin:h-40 blur-[2px]"
+            style={{
+              background: gym?.primary && gym?.primary.startsWith("oklch")
+                ? `linear-gradient(to bottom, transparent, ${gym.primary})`
+                : gym?.primary
+                  ? `linear-gradient(to bottom, transparent, ${gym.primary})`
+                  : "linear-gradient(to bottom, transparent, rgb(199 210 254))" // indigo-200 fallback
+            }}
+          />
+          <motion.div 
+            className="absolute left-1/2 bottom-1/2 translate-y-[14px] w-px h-20 group-hover/pin:h-40"
+            style={{
+              background: gym?.primary && gym?.primary.startsWith("oklch")
+                ? `linear-gradient(to bottom, transparent, ${gym.primary})`
+                : gym?.primary
+                  ? `linear-gradient(to bottom, transparent, ${gym.primary})`
+                  : "linear-gradient(to bottom, transparent, rgb(199 210 254))" // indigo-200 fallback
+            }}
+          />
+          <motion.div 
+            className="absolute left-1/2 translate-x-[1.5px] bottom-1/2 translate-y-[14px] w-[4px] h-[4px] rounded-full z-40 blur-[3px]"
+            style={{
+              backgroundColor: gym?.primary || "rgb(199 210 254)" // indigo-200 fallback
+            }}
+          />
+          <motion.div 
+            className="absolute left-1/2 translate-x-[0.5px] bottom-1/2 translate-y-[14px] w-[2px] h-[2px] rounded-full z-40"
+            style={{
+              backgroundColor: gym?.primary || "rgb(199 210 254)" // indigo-200 fallback
+            }}
+          />
         </>
       </div>
     </motion.div>

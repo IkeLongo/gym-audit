@@ -14,7 +14,7 @@ export default function GymLanding({ gym }: { gym: GymTheme }) {
       <Features gym={gym} />
       <PricingWithSwitchAndAddOn gym={gym} />
       <TestimonialsMasonryGrid gym={gym} />
-      <GymMapNewsletterSection />
+      <GymMapNewsletterSection gym={gym} />
     </div>
   );
 }

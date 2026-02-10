@@ -3,6 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import mapboxgl from "mapbox-gl";
 import { PinContainer } from "@/components/ui/3d-pin";
+import type { GymTheme } from "@/lib/gyms";
 
 type GymMapNewsletterSectionProps = {
   headline?: string;
@@ -10,6 +11,7 @@ type GymMapNewsletterSectionProps = {
   // San Antonio default
   center?: [number, number];
   marker?: [number, number];
+  gym?: GymTheme;
 };
 
 export default function GymMapNewsletterSection({
@@ -17,6 +19,7 @@ export default function GymMapNewsletterSection({
   addressLabel = "9464 Columbia Ave,\nSan Antonio, TX 78229",
   center = [-98.4936, 29.4241],
   marker = [-98.4936, 29.4241],
+  gym,
 }: GymMapNewsletterSectionProps) {
   const mapContainerRef = useRef<HTMLDivElement | null>(null);
   const mapRef = useRef<mapboxgl.Map | null>(null);
@@ -47,7 +50,7 @@ export default function GymMapNewsletterSection({
     mapRef.current = map;
 
     // Basic marker
-    new mapboxgl.Marker({ color: "#4d31c9" })
+    new mapboxgl.Marker({ color: gym?.primary || "#808080" })
       .setLngLat(marker)
       .addTo(map);
 
@@ -58,7 +61,7 @@ export default function GymMapNewsletterSection({
       map.remove();
       mapRef.current = null;
     };
-  }, [center, marker]);
+  }, [center, marker, gym]);
 
   return (
     <section id="location" className="relative mx-auto h-full w-full py-20 md:py-4">
@@ -79,7 +82,10 @@ export default function GymMapNewsletterSection({
               />
               <button
                 type="button"
-                className="shrink-0 rounded-full bg-gradient-to-b from-indigo-500 to-indigo-700 px-5 py-2 text-xs font-semibold text-white shadow-sm transition hover:bg-yellow-300"
+                className="shrink-0 rounded-full px-5 py-2 text-xs font-semibold text-white shadow-sm transition hover:bg-yellow-300"
+                style={gym?.primary2 ? {
+                  background: `linear-gradient(to bottom, ${gym?.primary}, ${gym?.primary2})`
+                } : { backgroundColor: gym?.primary || "#000000" }}
               >
                 Subscribe
               </button>
@@ -91,7 +97,7 @@ export default function GymMapNewsletterSection({
           </div>
 
           {/* RIGHT: Map Card */}
-          <PinContainer title="San Antonio, TX" href="#">
+          <PinContainer title="San Antonio, TX" href="#" gym={gym}>
             <div className="w-full">
               <div className="relative overflow-hidden rounded-2xl bg-neutral-900 ring-1 ring-white/10 shadow-2xl w-full">
                 {/* Tooltip label */}
