@@ -75,18 +75,12 @@ export const PinPerspective = ({
 }) => {
   // Helper to add alpha to OKLCH color string
   function oklchWithAlpha(oklch: string, alpha: number) {
-    console.log("oklchWithAlpha input:", { oklch, alpha });
     if (!oklch || !oklch.startsWith("oklch")) {
-      console.log("Not an OKLCH color, returning as-is:", oklch);
       return oklch;
     }
     const result = oklch.replace(")", ` / ${alpha})`);
-    console.log("oklchWithAlpha output:", result);
     return result;
   }
-
-  console.log("PinPerspective gym:", gym);
-  console.log("gym.primary2:", gym?.primary2);
 
   return (
     <motion.div className="pointer-events-none w-full h-60 flex items-center justify-center opacity-0 group-hover/pin:opacity-100 z-[60] transition duration-500">
