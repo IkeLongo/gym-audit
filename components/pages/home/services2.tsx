@@ -186,21 +186,21 @@ export const SkeletonOne = ({ accent }: { accent?: string }) => {
   return (
     <div className="h-full w-full -translate-y-10 scale-[1.2] rotate-x-30 -rotate-y-20 rotate-z-15 mask-r-from-50% mask-radial-from-50% perspective-distant">
       <SkeletonCard
-        className="absolute -bottom-4 left-18 z-30 max-w-[90%]"
+        className="absolute -bottom-16 left-1/2 sm:-bottom-16 sm:left-1/2 lg:-bottom-4 lg:left-18 z-30 max-w-sm"
         icon={<IconCheck className="size-4" style={accent ? { color: accent } : {}} />}
         title="Personalized Coaching"
         description="Work one-on-one with a certified trainer to create a custom fitness plan."
         imageSrc="/lets-just-do-a-quick-body-assessment.jpg"
       />
       <SkeletonCard
-        className="absolute bottom-0 left-12 z-20"
+        className="absolute -bottom-12 left-1/4 lg:bottom-0 lg:left-12 z-20 max-w-sm"
         icon={<IconCheck className="size-4" style={accent ? { color: accent } : {}} />}
         title="Group Training"
         description="Join a supportive community in high-energy group classes led by expert coaches."
         imageSrc="/coach-praising-athlete.jpg"
       />
       <SkeletonCard
-        className="absolute -bottom-4 left-6 z-10 max-w-[80%]"
+        className="absolute -bottom-12 left-6 lg:-bottom-4 lg:left-6 z-10 max-w-sm"
         icon={<IconCheck className="size-4" style={accent ? { color: accent } : {}} />}
         title="Athlete Development"
         description="Unlock your athletic potential with specialized programs focused on speed, strength, and confidence."
@@ -234,7 +234,7 @@ const SkeletonCard = ({
         <img
           src={imageSrc}
           alt={title}
-          className="mb-3 w-full rounded-xl object-cover max-h-40"
+          className="mb-3 w-full rounded-xl object-cover object-top max-h-40"
         />
       )}
       <div className="flex items-center gap-3">
@@ -297,7 +297,7 @@ export const SkeletonTwo = () => {
       }}
       className={cn(
         "group/bento-skeleton mx-auto my-auto flex h-full w-full max-w-[85%] flex-col rounded-2xl border border-neutral-300 bg-neutral-100 mask-b-from-50% mask-radial-from-50% p-3 shadow-2xl dark:border-neutral-700 dark:bg-neutral-800",
-        "translate-x-10",
+        "translate-x-0 lg:translatex-10",
         "[--pattern-bento:var(--color-neutral-950)]/5 dark:[--pattern-bento:var(--color-white)]/10",
       )}
     >
@@ -401,7 +401,7 @@ export const SkeletonThree = () => {
       <img
         src="/boy-on-exercise-machine-active-training-in-gym.jpg"
         alt="Youth athlete training in gym"
-        className="relative z-20 w-full max-h-40 rounded-2xl object-cover md:max-h-60 mx-8"
+        className="relative z-20 w-full max-h-40 rounded-2xl object-cover object-top md:max-h-60 mx-8"
         style={{
           WebkitMaskImage:
             'radial-gradient(circle at 50% 50%, rgba(0,0,0,1) 10%, rgba(0,0,0,0) 100%)',

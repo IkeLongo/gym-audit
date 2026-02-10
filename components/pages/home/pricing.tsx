@@ -43,7 +43,7 @@ export function Pricing({ gym }: { gym: GymTheme }) {
   const [modalOpen, setModalOpen] = useState(false);
 
   return (
-    <div className="relative mx-20">
+    <div className="relative mx-0 lg:mx-20">
       <div className="border-b">
         <div className="mx-auto mb-12 mt-10 flex w-fit items-center justify-center overflow-hidden rounded-full bg-neutral-100 dark:bg-neutral-800">
           {tabs.map((tab) => (
@@ -108,7 +108,7 @@ export function Pricing({ gym }: { gym: GymTheme }) {
               </p>
               <p
                 className={cn(
-                  "mt-6 h-12 text-sm leading-7 text-neutral-600 md:h-12 xl:h-12 dark:text-neutral-300",
+                  "my-6 h-12 text-sm leading-7 text-neutral-600 md:h-12 xl:h-12 dark:text-neutral-300",
                   tier.featured && "text-neutral-600 dark:text-neutral-300",
                 )}
               >
@@ -327,7 +327,7 @@ export const tiers: Tier[] = [
     href: "#",
     priceMonthly: "$350/mo",
     priceYearly: "$3,640/yr",
-    description: "Best for members who want personalized coaching and faster results.",
+    description: "Best for members who want personalized coaching and results.",
     features: [
       "One-on-one or semi-private coaching",
       "Customized training programs",

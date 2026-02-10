@@ -1,15 +1,15 @@
 import { cn } from "@/lib/utils";
 import {
   IconBrandFacebook,
-  IconBrandGithub,
   IconBrandInstagram,
-  IconBrandLinkedin,
   IconBrandTwitter,
 } from "@tabler/icons-react";
 import Link from "next/link";
 import React from "react";
 
-export function CenteredWithLogo() {
+import type { GymTheme } from "@/lib/gyms";
+
+export function CenteredWithLogo({ gym }: { gym: GymTheme }) {
   const pages = [
     { title: "Services", href: "#services" },
     { title: "Pricing", href: "#pricing" },
@@ -22,7 +22,12 @@ export function CenteredWithLogo() {
       <div className="mx-auto max-w-7xl items-start justify-between text-sm text-neutral-500 md:px-8">
         <div className="relative flex w-full flex-col items-center justify-center">
           <div className="mr-0 mb-4 md:mr-4 md:flex">
-            <Logo />
+            <Logo
+              logoSrc={gym.logoSrc}
+              logoHeight={gym.logoHeight}
+              logoWidth={gym.logoWidth}
+              name={gym.name}
+            />
           </div>
 
           <ul className="hover:text-text-neutral-800 flex list-none flex-col gap-4 text-neutral-600 transition-colors sm:flex-row dark:text-neutral-300">
@@ -42,7 +47,7 @@ export function CenteredWithLogo() {
         </div>
         <div className="mt-8 flex w-full flex-col items-center justify-between sm:flex-row">
           <p className="mb-8 text-neutral-500 sm:mb-0 dark:text-neutral-400">
-            &copy; Example Gym LLC
+            &copy; {gym.name} LLC
           </p>
           <div className="flex gap-4">
             <Link href="#">
@@ -102,19 +107,29 @@ const GridLineHorizontal = ({
   );
 };
 
-const Logo = () => {
+const Logo = ({
+  logoSrc,
+  logoHeight,
+  logoWidth,
+  name,
+} : {
+  logoSrc?: string,
+  logoHeight?: number,
+  logoWidth?: number,
+  name?: string,
+}) => {
   return (
     <Link
       href="/"
       className="relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 text-sm font-normal text-black"
     >
       <img
-        src="https://assets.aceternity.com/logo-dark.png"
-        alt="logo"
-        width={30}
-        height={30}
+        src={logoSrc}
+        height={logoHeight}
+        width={logoWidth}
+        alt="Logo"
       />
-      <span className="font-medium text-black dark:text-white">Example Gym</span>
+      <span className="font-medium text-black dark:text-white">{name}</span>
     </Link>
   );
 };
