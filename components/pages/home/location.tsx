@@ -7,19 +7,20 @@ import type { GymTheme } from "@/lib/gyms";
 
 type GymMapNewsletterSectionProps = {
   headline?: string;
-  addressLabel?: string;
-  // San Antonio default
-  center?: [number, number];
-  marker?: [number, number];
   gym?: GymTheme;
+  addressLabel?: string;
+  addressTitle?: string;
+  geoCenter?: [number, number];
+  geoMarker?: [number, number];
 };
 
 export default function GymMapNewsletterSection({
   headline = "Stay Up to Date With Training & Events",
-  addressLabel = "9464 Columbia Ave,\nSan Antonio, TX 78229",
-  center = [-98.4936, 29.4241],
-  marker = [-98.4936, 29.4241],
   gym,
+  addressLabel = gym?.addressLabel || "9464 Columbia Ave,\nSan Antonio, TX 78229",
+  addressTitle = gym?.addressTitle || "Our Location",
+  geoCenter = gym?.geoCenter,
+  geoMarker = gym?.geoMarker,
 }: GymMapNewsletterSectionProps) {
   const mapContainerRef = useRef<HTMLDivElement | null>(null);
   const mapRef = useRef<mapboxgl.Map | null>(null);
@@ -40,8 +41,8 @@ export default function GymMapNewsletterSection({
     const map = new mapboxgl.Map({
       container: mapContainerRef.current,
       style: "mapbox://styles/mapbox/dark-v11",
-      center,
-      zoom: 12,
+      center: geoCenter,
+      zoom: 15,
       pitch: 0,
       bearing: 0,
       attributionControl: false,
@@ -51,7 +52,7 @@ export default function GymMapNewsletterSection({
 
     // Basic marker
     new mapboxgl.Marker({ color: gym?.primary || "#808080" })
-      .setLngLat(marker)
+      .setLngLat(geoMarker || geoCenter || [-98.4936, 29.4241])
       .addTo(map);
 
     // Optional: disable scroll zoom so it feels like a card
@@ -61,7 +62,7 @@ export default function GymMapNewsletterSection({
       map.remove();
       mapRef.current = null;
     };
-  }, [center, marker, gym]);
+  }, [geoCenter, geoMarker, gym]);
 
   return (
     <section id="location" className="relative mx-auto h-full w-full py-20 md:py-4">
@@ -97,7 +98,7 @@ export default function GymMapNewsletterSection({
           </div>
 
           {/* RIGHT: Map Card */}
-          <PinContainer title="San Antonio, TX" href="#" gym={gym}>
+          <PinContainer title={addressTitle || "San Antonio, TX"} gym={gym}>
             <div className="w-full">
               <div className="relative overflow-hidden rounded-2xl bg-neutral-900 ring-1 ring-white/10 shadow-2xl w-full">
                 {/* Tooltip label */}

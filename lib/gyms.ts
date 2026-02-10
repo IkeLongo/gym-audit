@@ -7,7 +7,10 @@ export type GymTheme = {
   primary: string;           // hex
   primary2?: string;          // hex (optional)
   accent?: string;           // hex (optional)
-  textOnPrimary?: string;    // hex (optional)
+  addressLabel?: string;      // optional custom address for map section
+  addressTitle?: string;    // hex (optional, defaults to black or white based on primary color)
+  geoCenter?: [number, number]; // optional custom map center [lng, lat]
+  geoMarker?: [number, number]; // optional custom marker position [lng, lat]
 };
 
 export const DEFAULT_GYM: GymTheme = {
@@ -19,7 +22,10 @@ export const DEFAULT_GYM: GymTheme = {
   primary: "oklch(58.5% 0.233 277.117)",
   primary2: "oklch(58.5% 0.233 277.117)",
   accent: "oklch(67.3% 0.182 276.935)",
-  textOnPrimary: "#0A0A0A",
+  addressLabel: "9464 Columbia Ave,\nSan Antonio, TX 78229",
+  addressTitle: "San Antonio",
+  geoCenter: [-98.4936, 29.4241],
+  geoMarker: [-98.4936, 29.4241],
 };
 
 export const GYMS: Record<string, GymTheme> = {
@@ -32,7 +38,10 @@ export const GYMS: Record<string, GymTheme> = {
     primary: "oklch(51.1% 0.096 186.391)",
     primary2: "oklch(70.4% 0.14 182.503)",
     accent: "oklch(92.5% 0.084 155.995)",
-    textOnPrimary: "#0A0A0A",
+    addressLabel: "31007 I-10 West,\nBoerne, TX 78006",
+    addressTitle: "Specialized Fitness",
+    geoCenter: [-98.699467, 29.748656],
+    geoMarker: [-98.699467, 29.748656],
   },
   phoenix830: {
     slug: "phoenix830",
@@ -43,7 +52,10 @@ export const GYMS: Record<string, GymTheme> = {
     primary: "oklch(72.3% 0.219 149.579)",
     primary2: "oklch(52.7% 0.154 150.069)",
     accent: "oklch(87.1% 0.15 154.449)",
-    textOnPrimary: "#0A0A0A",
+    addressLabel: "30875 I-10 West,\nBoerne, TX 78006",
+    addressTitle: "Phoenix 830",
+    geoCenter: [-98.698339, 29.747596],
+    geoMarker: [-98.698339, 29.747596],
   },
   orionfitness: {
     slug: "orionfitness",
@@ -53,7 +65,9 @@ export const GYMS: Record<string, GymTheme> = {
     logoWidth: 140,
     primary: "oklch(71.5% 0.143 215.221)",
     primary2: "oklch(52% 0.105 223.128)",
-    accent: "oklch(91.7% 0.08 205.041)",
-    textOnPrimary: "#0A0A0A",
+    addressLabel: "21195 I-10 West,\nSan Antonio, TX 78257",
+    addressTitle: "Orion Fitness",
+    geoCenter: [-98.617497, 29.63918],
+    geoMarker: [-98.617497, 29.63918],
   },
 };

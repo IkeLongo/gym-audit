@@ -7,14 +7,12 @@ import { GymTheme } from "@/lib/gyms";
 export const PinContainer = ({
   children,
   title,
-  href,
   gym,
   className,
   containerClassName,
 }: {
   children: React.ReactNode;
   title?: string;
-  href?: string;
   gym?: GymTheme;
   className?: string;
   containerClassName?: string;
@@ -38,7 +36,6 @@ export const PinContainer = ({
       )}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
-      href={href || "/"}
     >
       {/* Spacer to maintain height */}
       <div className="w-full h-14" />
@@ -59,7 +56,7 @@ export const PinContainer = ({
           <div className={cn(" relative z-50 w-full", className)}>{children}</div>
         </div>
       </div>
-      <PinPerspective title={title} href={href} gym={gym} />
+      <PinPerspective title={title} gym={gym} />
     </a>
   );
 };
