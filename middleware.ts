@@ -20,8 +20,6 @@ export function middleware(req: NextRequest) {
   const host = req.headers.get("host") || "";
   const slug = extractGymSlug(host);
 
-  console.log("MIDDLEWARE HIT:", { host, slug, path: req.nextUrl.pathname });
-
   if (!slug) return NextResponse.next();
 
   const url = req.nextUrl.clone();

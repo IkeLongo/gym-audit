@@ -17,14 +17,14 @@ export function TestimonialsMasonryGrid({ gym }: { gym: GymTheme }) {
       <h2
         id="reviews-title"
         className={cn(
-          "mx-8 text-3xl font-medium tracking-tight text-neutral-900 sm:text-center dark:text-white",
+          "mx-8 text-3xl font-medium tracking-tight text-white sm:text-center",
         )}
       >
         Real Members. Real Results.
       </h2>
       <p
         className={cn(
-          "mt-2 mx-8 text-lg text-neutral-600 sm:text-center dark:text-neutral-200",
+          "mt-2 mx-8 text-lg text-neutral-200 sm:text-center",
         )}
       >
         See what our members are saying about the coaching, community, and results they’ve experienced inside the gym.
@@ -77,7 +77,7 @@ export const Card = ({
   return (
     <div
       className={cn(
-        "group relative rounded-xl border border-transparent bg-white p-8 shadow-[0_1px_1px_rgba(0,0,0,0.05),0_4px_6px_rgba(34,42,53,0.04),0_24px_68px_rgba(47,48,55,0.05),0_2px_3px_rgba(0,0,0,0.04)] dark:border-[rgba(255,255,255,0.10)] dark:bg-[rgba(40,40,40,0.30)] dark:shadow-[2px_4px_16px_0px_rgba(248,248,248,0.06)_inset]",
+        "group relative rounded-xl border border-transparent bg-[rgba(40,40,40,0.30)] p-8 shadow-[2px_4px_16px_0px_rgba(248,248,248,0.06)_inset] border-[rgba(255,255,255,0.10)]",
         className,
       )}
     >
@@ -100,7 +100,7 @@ export const Quote = ({
   return (
     <h3
       className={cn(
-        "relative py-2 text-base font-normal text-black dark:text-white",
+        "relative py-2 text-base font-normal text-white",
         className,
       )}
     >
@@ -125,17 +125,6 @@ export const QuoteDescription = ({
     >
       {children}
     </p>
-  );
-};
-
-const Scales = () => {
-  return (
-    <>
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-px w-full bg-neutral-200 md:top-0 dark:bg-neutral-800"></div>
-      <div className="pointer-events-none absolute inset-x-0 bottom-4 h-px w-full bg-neutral-200 md:bottom-10 dark:bg-neutral-800"></div>
-      <div className="pointer-events-none absolute inset-y-0 left-4 h-full w-px bg-neutral-200 md:left-10 dark:bg-neutral-800"></div>
-      <div className="pointer-events-none absolute inset-y-0 right-4 h-full w-px bg-neutral-200 md:right-10 dark:bg-neutral-800"></div>
-    </>
   );
 };
 

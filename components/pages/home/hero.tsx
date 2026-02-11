@@ -34,7 +34,7 @@ export function HeroWithBackgroundAndNavbar({ gym }: { gym: GymTheme }) {
             <a
               key={link.name}
               href={link.href}
-              className="hidden text-sm font-medium text-neutral-600 mix-blend-multiply transition-colors hover:text-neutral-900 sm:block dark:text-neutral-400 dark:hover:text-neutral-100"
+              className="hidden text-sm font-medium text-neutral-400 mix-blend-multiply transition-colors hover:text-neutral-100 sm:block"
             >
               {link.name}
             </a>
@@ -63,10 +63,10 @@ export function HeroWithBackgroundAndNavbar({ gym }: { gym: GymTheme }) {
         </motion.div>
         {/* <Scales /> */}
         <div className="relative z-40 p-4 md:p-4">
-          <h1 className="max-w-3xl text-3xl font-medium tracking-tight text-neutral-800 sm:text-4xl md:text-6xl lg:text-8xl dark:text-neutral-200">
+          <h1 className="max-w-3xl text-3xl font-medium tracking-tight text-neutral-200 sm:text-4xl md:text-6xl lg:text-8xl">
             Your Fitness Journey Begins Here
           </h1>
-          <p className="mt-4 max-w-xl text-base text-neutral-600 md:mt-6 md:text-lg dark:text-neutral-400">
+          <p className="mt-4 max-w-xl text-base text-neutral-300 md:mt-6 md:text-lg">
             Our state of the art facilities and expert trainers 
             are here to support you every step of the way. Whether 
             you're a beginner or a seasoned athlete, we have 
@@ -78,9 +78,6 @@ export function HeroWithBackgroundAndNavbar({ gym }: { gym: GymTheme }) {
               onClick={() => setModalOpen(true)}
               primaryColor={gym.primary}
             />
-            {/* <button className="text-sm font-medium text-neutral-600 dark:text-neutral-400">
-              Read Documentation &rarr;
-            </button> */}
           </div>
         </div>
         {/* Modal */}
@@ -95,17 +92,6 @@ export function HeroWithBackgroundAndNavbar({ gym }: { gym: GymTheme }) {
     </div>
   );
 }
-
-const Scales = () => {
-  return (
-    <>
-      <div className="pointer-events-none absolute inset-x-0 top-4 h-px w-full bg-neutral-200 md:top-10 dark:bg-neutral-800"></div>
-      <div className="pointer-events-none absolute inset-x-0 bottom-4 h-px w-full bg-neutral-200 md:bottom-10 dark:bg-neutral-800"></div>
-      <div className="pointer-events-none absolute inset-y-0 left-4 h-full w-px bg-neutral-200 md:left-10 dark:bg-neutral-800"></div>
-      <div className="pointer-events-none absolute inset-y-0 right-4 h-full w-px bg-neutral-200 md:right-10 dark:bg-neutral-800"></div>
-    </>
-  );
-};
 
 export const Button = ({
   text = "Try for free",
@@ -217,7 +203,7 @@ export const Logo = ({
     <a
       href="/"
       className={cn(
-        "flex items-center justify-center space-x-2 py-6 text-center text-2xl font-bold text-neutral-600 selection:bg-emerald-500 dark:text-gray-100",
+        "flex items-center justify-center space-x-2 py-6 text-center text-2xl font-bold text-gray-100 selection:bg-emerald-500",
         className,
       )}
     >
@@ -236,7 +222,7 @@ export const Logo = ({
         </div>
       </div>
       <div className="hidden flex-col sm:flex">
-        <h1 className={cn("font-sans text-black dark:text-white")}>
+        <h1 className={cn("font-sans text-white")}>
           {" "}
           {name}
         </h1>

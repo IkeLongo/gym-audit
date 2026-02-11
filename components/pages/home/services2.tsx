@@ -8,9 +8,7 @@ import type { GymTheme } from "@/lib/gyms";
 import {
   IconCheck,
   IconClock,
-  IconExclamationCircle,
   IconLoader2,
-  IconPrison,
   IconRipple,
 } from "@tabler/icons-react";
 import { div, style } from "motion/react-m";
@@ -19,7 +17,7 @@ export function Features({ gym }: { gym: GymTheme }) {
   return (
     <div id="services" className="mx-auto max-w-7xl px-4 py-10 md:px-8 md:py-20 lg:py-32">
       <div className="flex flex-col justify-start gap-10 xl:flex-row xl:items-baseline-last">
-        <h2 className="text-2xl font-bold tracking-tight md:text-4xl lg:text-5xl">
+        <h2 className="text-2xl font-bold tracking-tight md:text-4xl lg:text-5xl text-neutral-100">
           Training Programs <br /> Built for <span className="italic" style={gym.accent ? { color: gym.accent } : {}}>Real Results</span>
         </h2>
         <p className="font-inter max-w-md text-base text-neutral-400 md:text-lg">
@@ -91,7 +89,7 @@ export const Card = ({
 }) => {
   return (
     <div
-      className={cn("rounded-lg bg-neutral-50 dark:bg-neutral-800", className)}
+      className={cn("rounded-lg bg-neutral-800", className)}
     >
       {children}
     </div>
@@ -125,7 +123,7 @@ export const CardCTA = ({
   return (
     <button
       className={cn(
-        "hidden size-5 shrink-0 items-center justify-center rounded-full border border-neutral-200 transition duration-200 active:scale-[0.98] md:size-10 lg:flex dark:border-neutral-800",
+        "hidden size-5 shrink-0 items-center justify-center rounded-full border border-neutral-800 transition duration-200 active:scale-[0.98] md:size-10 lg:flex",
         className,
       )}
       {...rest}
@@ -143,7 +141,7 @@ export const CardTitle = ({
   children: React.ReactNode;
 }) => {
   return (
-    <h3 className={cn("font-display text-lg font-bold md:text-xl", className)}>
+    <h3 className={cn("font-display text-lg font-bold md:text-xl text-neutral-100", className)}>
       {children}
     </h3>
   );
@@ -157,7 +155,7 @@ export const CardDescription = ({
   children: React.ReactNode;
 }) => {
   return (
-    <p className={cn("font-display text-md md:text-md", className)}>
+    <p className={cn("font-display text-md md:text-md text-neutral-200", className)}>
       {children}
     </p>
   );
@@ -228,7 +226,7 @@ const SkeletonCard = ({
   return (
     <div
       className={cn(
-        "mx-auto my-auto h-fit w-full max-w-[85%] rounded-2xl border border-neutral-200 bg-neutral-100 p-3 shadow-2xl dark:border-neutral-700 dark:bg-neutral-800",
+        "mx-auto my-auto h-fit w-full max-w-[85%] rounded-2xl border border-neutral-700 bg-neutral-800 p-3 shadow-2xl",
         className,
       )}
     >
@@ -243,11 +241,11 @@ const SkeletonCard = ({
       )}
       <div className="flex items-center gap-3">
         {icon}
-        <p className="text-sm font-normal text-black dark:text-white">
+        <p className="text-sm font-normal text-white">
           {title}
         </p>
       </div>
-      <p className="mt-3 text-sm font-normal text-neutral-400 dark:text-neutral-400">
+      <p className="mt-3 text-sm font-normal text-neutral-400">
         {description}
       </p>
       {/* <div className="mt-4 flex flex-wrap items-center gap-2">
@@ -261,7 +259,7 @@ const SkeletonCard = ({
 
 const Tag = ({ text }: { text: string }) => {
   return (
-    <div className="rounded-sm bg-neutral-200 px-2 py-1 text-xs dark:bg-neutral-700">
+    <div className="rounded-sm bg-neutral-700 px-2 py-1 text-xs">
       {text}
     </div>
   );
@@ -300,9 +298,9 @@ export const SkeletonTwo = () => {
         transform: "rotateY(20deg) rotateX(20deg) rotateZ(-20deg)",
       }}
       className={cn(
-        "group/bento-skeleton mx-auto my-auto flex h-full w-full max-w-[85%] flex-col rounded-2xl border border-neutral-300 bg-neutral-100 mask-b-from-50% mask-radial-from-50% p-3 shadow-2xl dark:border-neutral-700 dark:bg-neutral-800",
+        "group/bento-skeleton mx-auto my-auto flex h-full w-full max-w-[85%] flex-col rounded-2xl border border-neutral-700 bg-neutral-800 mask-b-from-50% mask-radial-from-50% p-3 shadow-2xl",
         "translate-x-0 lg:translatex-10",
-        "[--pattern-bento:var(--color-neutral-950)]/5 dark:[--pattern-bento:var(--color-white)]/10",
+        "[--pattern-bento:var(--color-white)]/10",
       )}
     >
       <Image
@@ -314,13 +312,13 @@ export const SkeletonTwo = () => {
       />
       <div className="flex items-center gap-3">
         <IconCheck className="size-4" />
-        <p className="text-sm font-normal text-black dark:text-white">
+        <p className="text-sm font-normal text-white">
           Group Training
         </p>
       </div>
-      <div className="relative mt-4 flex-1 overflow-visible rounded-2xl border border-neutral-200 bg-neutral-200 dark:border-neutral-700 dark:bg-neutral-800">
+      <div className="relative mt-4 flex-1 overflow-visible rounded-2xl border border-neutral-700 bg-neutral-800">
         <Pattern />
-        <div className="absolute inset-0 h-full w-full translate-x-4 -translate-y-4 translate-z-10 rounded-2xl bg-white transition-all duration-300 group-hover/bento-skeleton:translate-x-0 group-hover/bento-skeleton:-translate-y-0 dark:bg-neutral-700">
+        <div className="absolute inset-0 h-full w-full translate-x-4 -translate-y-4 translate-z-10 rounded-2xl bg-neutral-700 transition-all duration-300 group-hover/bento-skeleton:translate-x-0 group-hover/bento-skeleton:-translate-y-0">
           <Row
             icon={<IconCheck className="size-3 fill-green-500 stroke-white" />}
             text="Dynamic warm-ups"
@@ -382,7 +380,7 @@ const Row = ({
         >
           {icon}
         </div>
-        <p className="text-sm font-medium text-neutral-500 dark:text-neutral-400">
+        <p className="text-sm font-medium text-neutral-400">
           {text}
         </p>
       </div>

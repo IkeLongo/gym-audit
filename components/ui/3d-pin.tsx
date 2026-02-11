@@ -17,29 +17,52 @@ export const PinContainer = ({
   className?: string;
   containerClassName?: string;
 }) => {
-  const [transform, setTransform] = useState(
-    "translate(-50%,-50%) rotateX(0deg)"
+
+  const [transform, setTransform] = useState("translate(-50%,-50%) rotateX(0deg) scale(1)");
+  const [perspectiveActive, setPerspectiveActive] = useState(false);
+
+  // Detect touch device
+  const isTouchDevice = typeof window !== "undefined" && (
+    "ontouchstart" in window || navigator.maxTouchPoints > 0
   );
 
-  const onMouseEnter = () => {
+  const activatePerspective = () => {
     setTransform("translate(-50%,-50%) rotateX(40deg) scale(0.8)");
+    setPerspectiveActive(true);
   };
-  const onMouseLeave = () => {
+  const deactivatePerspective = () => {
     setTransform("translate(-50%,-50%) rotateX(0deg) scale(1)");
+    setPerspectiveActive(false);
+  };
+
+  const handleMouseEnter = () => {
+    if (!isTouchDevice) activatePerspective();
+  };
+  const handleMouseLeave = () => {
+    if (!isTouchDevice) deactivatePerspective();
+  };
+  const handleClick = () => {
+    if (isTouchDevice) {
+      perspectiveActive ? deactivatePerspective() : activatePerspective();
+    }
   };
 
   return (
     <a
       className={cn(
         "relative group/pin z-50 cursor-pointer w-full block",
-        containerClassName
+        containerClassName,
+        perspectiveActive ? "pin-perspective-active" : ""
       )}
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      onClick={handleClick}
+      tabIndex={0}
+      aria-label={title || "Pin"}
     >
       {/* Spacer to maintain height */}
       <div className="w-full h-14" />
-      
+
       <div
         style={{
           perspective: "1000px",
@@ -56,7 +79,7 @@ export const PinContainer = ({
           <div className={cn(" relative z-50 w-full", className)}>{children}</div>
         </div>
       </div>
-      <PinPerspective title={title} gym={gym} />
+      <PinPerspective title={title} gym={gym} perspectiveActive={perspectiveActive} />
     </a>
   );
 };
@@ -65,10 +88,12 @@ export const PinPerspective = ({
   title,
   href,
   gym,
+  perspectiveActive,
 }: {
   title?: string;
   href?: string;
   gym?: GymTheme;
+  perspectiveActive?: boolean;
 }) => {
   // Helper to add alpha to OKLCH color string
   function oklchWithAlpha(oklch: string, alpha: number) {
@@ -80,7 +105,10 @@ export const PinPerspective = ({
   }
 
   return (
-    <motion.div className="pointer-events-none w-full h-60 flex items-center justify-center opacity-0 group-hover/pin:opacity-100 z-[60] transition duration-500">
+    <motion.div className={cn(
+      "pointer-events-none w-full h-60 flex items-center justify-center opacity-0 z-[60] transition duration-500",
+      perspectiveActive ? "opacity-100" : "group-hover/pin:opacity-100"
+    )}>
       <div className="w-full h-full -mt-7 flex-none inset-0">
         <div className="absolute left-0 right-0 top-0 flex justify-center">
           <div
