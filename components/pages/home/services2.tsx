@@ -1,6 +1,8 @@
 import React from "react";
 import { cn } from "@/lib/utils";
 import { IconPlus, IconTrophy, IconUser, IconUsers } from "@tabler/icons-react";
+import Image from "next/image";
+
 import type { GymTheme } from "@/lib/gyms";
 
 import {
@@ -190,21 +192,21 @@ export const SkeletonOne = ({ accent }: { accent?: string }) => {
         icon={<IconCheck className="size-4" style={accent ? { color: accent } : {}} />}
         title="Personalized Coaching"
         description="Work one-on-one with a certified trainer to create a custom fitness plan."
-        imageSrc="/lets-just-do-a-quick-body-assessment.jpg"
+        imageSrc="/lets-just-do-a-quick-body-assessment.webp"
       />
       <SkeletonCard
         className="absolute -bottom-12 left-1/4 lg:bottom-0 lg:left-12 z-20 max-w-sm"
         icon={<IconCheck className="size-4" style={accent ? { color: accent } : {}} />}
         title="Group Training"
         description="Join a supportive community in high-energy group classes led by expert coaches."
-        imageSrc="/coach-praising-athlete.jpg"
+        imageSrc="/coach-praising-athlete.webp"
       />
       <SkeletonCard
         className="absolute -bottom-12 left-6 lg:-bottom-4 lg:left-6 z-10 max-w-sm"
         icon={<IconCheck className="size-4" style={accent ? { color: accent } : {}} />}
         title="Athlete Development"
         description="Unlock your athletic potential with specialized programs focused on speed, strength, and confidence."
-        imageSrc="/man-exercising-with-barbell-in-sport-gym.jpg"
+        imageSrc="/man-exercising-with-barbell-in-sport-gym.webp"
       />
     </div>
   );
@@ -231,10 +233,12 @@ const SkeletonCard = ({
       )}
     >
       {imageSrc && (
-        <img
+        <Image
           src={imageSrc}
           alt={title}
           className="mb-3 w-full rounded-xl object-cover object-top max-h-40"
+          width={400}
+          height={300}
         />
       )}
       <div className="flex items-center gap-3">
@@ -301,10 +305,12 @@ export const SkeletonTwo = () => {
         "[--pattern-bento:var(--color-neutral-950)]/5 dark:[--pattern-bento:var(--color-white)]/10",
       )}
     >
-      <img
-        src="/athletes-doing-air-bike-indoor.jpg"
+      <Image
+        src="/athletes-doing-air-bike-indoor.webp"
         alt="Group Training"
         className="mb-3 w-full rounded-xl object-cover max-h-40"
+        width={400}
+        height={300}
       />
       <div className="flex items-center gap-3">
         <IconCheck className="size-4" />
@@ -398,10 +404,12 @@ const Pattern = () => {
 export const SkeletonThree = () => {
   return (
     <div className="relative flex h-full w-full items-center justify-center">
-      <img
-        src="/boy-on-exercise-machine-active-training-in-gym.jpg"
+      <Image
+        src="/boy-on-exercise-machine-active-training-in-gym.webp"
         alt="Youth athlete training in gym"
         className="relative z-20 w-full max-h-40 rounded-2xl object-cover object-top md:max-h-60 mx-8"
+        width={400}
+        height={300}
         style={{
           WebkitMaskImage:
             'radial-gradient(circle at 50% 50%, rgba(0,0,0,1) 10%, rgba(0,0,0,0) 100%)',

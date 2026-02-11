@@ -32,7 +32,7 @@ export const GYMS: Record<string, GymTheme> = {
   specializedfitness: {
     slug: "specializedfitness",
     name: "Specialized Fitness",
-    logoSrc: "/logo-specialized-fitness.png",
+    logoSrc: "/logo-specialized-fitness.webp",
     logoHeight: 70,
     logoWidth: 130,
     primary: "oklch(51.1% 0.096 186.391)",
@@ -46,7 +46,7 @@ export const GYMS: Record<string, GymTheme> = {
   phoenix830: {
     slug: "phoenix830",
     name: "Phoenix 830",
-    logoSrc: "/logo-phoenix-830.png",
+    logoSrc: "/logo-phoenix-830.webp",
     logoHeight: 50,
     logoWidth: 50,
     primary: "oklch(72.3% 0.219 149.579)",
@@ -60,7 +60,7 @@ export const GYMS: Record<string, GymTheme> = {
   orionfitness: {
     slug: "orionfitness",
     name: "Orion Fitness",
-    logoSrc: "/logo-orion-fitness.png",
+    logoSrc: "/logo-orion-fitness.webp",
     logoHeight: 70,
     logoWidth: 140,
     primary: "oklch(71.5% 0.143 215.221)",

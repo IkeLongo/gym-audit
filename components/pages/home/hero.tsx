@@ -4,6 +4,8 @@ import { cn } from "@/lib/utils";
 import React, { useState, useEffect } from "react";
 import { motion } from "motion/react";
 import { SimpleCenteredContactForm } from "@/components/ui/forms/simple-contact";
+import Image from "next/image";
+
 import type { GymTheme } from "@/lib/gyms";
 
 const navLinks = [
@@ -52,10 +54,11 @@ export function HeroWithBackgroundAndNavbar({ gym }: { gym: GymTheme }) {
           transition={{ duration: 1, ease: "easeOut" }}
           className="pointer-events-none absolute inset-4 overflow-hidden md:inset-10"
         >
-          <img
-            src="/athletic-young-man-doing-hiit-workout-in-gym.jpg"
+          <Image
+            src="/athletic-young-man-doing-hiit-workout-in-gym.webp"
             alt="Background"
             className="h-full w-full mask-t-from-70% mask-b-from-50% mask-l-from-50% object-cover object-center"
+            fill
           />
         </motion.div>
         {/* <Scales /> */}
@@ -224,8 +227,8 @@ export const Logo = ({
       >
         <div className="absolute inset-x-0 -top-10 h-10 w-full rounded-full bg-white/[0.2] blur-xl" />
         <div className="relative z-20 text-sm">
-          <img
-            src={logoSrc}
+          <Image
+            src={logoSrc || ""}
             height={logoHeight}
             width={logoWidth}
             alt="Logo"
